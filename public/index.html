@@ -3,7 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PWA Manifest Studio | PWA Generator & ServiceWorker Suite</title>
+  <title>PWA Manifest Studio | Progressive Web App Generator & ServiceWorker Suite</title>
+  <meta name="description" content="Zero-cloud in-browser Progressive Web App manifest authoring, ServiceWorker synthesis, offline cache architect, and 1-click ZIP bundle exporter.">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="canonical" href="https://pwabuilder.nullai.tech/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PWA Manifest Studio | PWA Generator & ServiceWorker Suite">
+  <meta property="og:description" content="100% in-browser Progressive Web App manifest generator, ServiceWorker compiler, offline cache architect, and production PWA bundle exporter. Zero cloud egress.">
+  <meta property="og:url" content="https://pwabuilder.nullai.tech">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pwabuilder.nullai.tech/favicon.ico">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@1nc0gn30">
+  <meta name="twitter:creator" content="@1nc0gn30">
+  <meta name="twitter:title" content="PWA Manifest Studio | Progressive Web App Generator">
+  <meta name="twitter:description" content="100% in-browser PWA generator, ServiceWorker compiler, offline cache architect, and production PWA bundle exporter.">
+  <meta name="twitter:image" content="https://pwabuilder.nullai.tech/favicon.ico">
+
+  <!-- AEO & SEO Schema.org JSON-LD Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "PWA Manifest Studio",
+        "url": "https://pwabuilder.nullai.tech",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "description": "Zero-cloud in-browser Progressive Web App manifest authoring, ServiceWorker synthesis, offline cache architect, and 1-click ZIP bundle exporter.",
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Neal Frazier",
+          "url": "https://nealfrazier.tech"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Neal Frazier Tech",
+          "url": "https://nealfrazier.tech"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does PWA Manifest Studio run completely in the browser?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, all manifest generation, ServiceWorker code compilation, offline HTML synthesis, and ZIP bundle creation run 100% client-side in your browser with zero server egress."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What caching strategies are supported in the generated Service Worker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CacheFirst, NetworkFirst, and StaleWhileRevalidate strategies are supported with automatic offline fallback routing and precache asset arrays."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the $19 lifetime license work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Founding members receive lifetime access to client-side production PWA bundle exports, complete ZIP archive packaging, and advanced ServiceWorker routines with instant Stripe and Solana DePay checkout."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -671,25 +752,411 @@
       box-shadow: var(--md-elevation-1);
     }
 
-    .bundle-actions {
+    /* Pro & Monetization Architecture */
+    .pro-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .sales-banner-wrap {
+      width: 100%;
+      max-width: 1680px;
+      margin: 16px auto 0;
+      padding: 0 24px;
+    }
+    .sales-banner {
+      background: linear-gradient(135deg, rgba(26, 115, 232, 0.12), rgba(212, 175, 55, 0.18));
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .sales-banner-left {
       display: flex;
       flex-direction: column;
+      gap: 4px;
+    }
+    .sales-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(212, 175, 55, 0.2);
+      color: #ffd700;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .sales-headline {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--md-sys-color-on-surface);
+    }
+    .sales-pricing {
+      font-size: 12px;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    .sales-pricing del {
+      color: var(--md-sys-color-error);
+      margin-right: 4px;
+    }
+    .sales-pricing strong {
+      color: #ffd700;
+      font-size: 13px;
+    }
+    .sales-banner-right {
+      display: flex;
+      align-items: center;
       gap: 8px;
-      margin-top: 12px;
+      flex-shrink: 0;
+    }
+    .banner-cta-stripe {
+      background: linear-gradient(135deg, #d4af37, #f3e5ab);
+      color: #111;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(212,175,55,0.3);
+    }
+    .banner-cta-stripe:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+    .banner-cta-solana {
+      background: #14f195;
+      color: #0b0f19;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      border: none;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .banner-cta-solana:hover {
+      filter: brightness(1.08);
+    }
+    .banner-cta-key {
+      background: transparent;
+      color: var(--md-sys-color-on-surface-variant);
+      border: 1px solid var(--md-sys-color-outline);
+      padding: 7px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .banner-cta-key:hover {
+      background: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface);
+    }
+
+    /* Paywall Blur Styles */
+    .paywall-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .paywall-wrap.is-locked .paywall-content {
+      filter: blur(6px);
+      pointer-events: none;
+      user-select: none;
+    }
+    .paywall-overlay {
+      display: none;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(18, 18, 24, 0.82);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+      z-index: 10;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: var(--radius-md);
+    }
+    .paywall-wrap.is-locked .paywall-overlay {
+      display: flex;
+    }
+    .paywall-lock-badge {
+      background: rgba(212, 175, 55, 0.2);
+      color: #ffd700;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .paywall-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .paywall-subtitle {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+      max-width: 260px;
+    }
+    .paywall-ctas {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Modal Styles */
+    .pro-modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .pro-modal-card {
+      background: var(--md-sys-color-surface);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 520px;
+      padding: 24px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+    .pro-modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .pro-modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--md-sys-color-on-surface);
+    }
+    .pro-modal-close {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .pro-modal-benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .pro-benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--md-sys-color-on-surface);
+      background: var(--md-sys-color-surface-variant);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .pro-benefit-icon {
+      color: #ffd700;
+      font-weight: 700;
+    }
+    .pro-modal-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .modal-cta-stripe {
+      background: linear-gradient(135deg, #d4af37, #f3e5ab);
+      color: #111;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      text-decoration: none;
+      font-size: 15px;
+      display: block;
+      box-shadow: 0 4px 14px rgba(212,175,55,0.3);
+    }
+    .modal-cta-solana {
+      background: #14f195;
+      color: #0b0f19;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    .pro-key-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--md-sys-color-outline);
+    }
+    .pro-key-input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--md-sys-color-outline);
+      background: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface);
+      font-size: 13px;
+    }
+    .pro-key-submit {
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      border: none;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .app-footer {
+      background-color: var(--md-sys-color-surface);
+      border-top: 1px solid var(--md-sys-color-outline);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--md-sys-color-on-surface-variant);
+      margin-top: auto;
+    }
+    .app-footer a {
+      color: var(--md-sys-color-primary);
+      text-decoration: none;
+    }
+    .app-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .studio-container > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+    .left-panel, .center-viewport, .right-panel {
+      min-width: 0;
+      max-width: 100%;
+    }
+    .card {
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .phone-mockup {
+      max-width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      header.app-header {
+        height: auto;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .brand-title {
+        font-size: 16px;
+      }
+      main.studio-container {
+        padding: 12px;
+        gap: 16px;
+      }
+      .segmented-bar {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sales-banner-wrap {
+        padding: 0 12px;
+      }
+      .sales-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .sales-banner-right {
+        width: 100%;
+        justify-content: stretch;
+      }
+      .banner-cta-stripe, .banner-cta-solana, .banner-cta-key {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+      }
+      .pro-modal-benefits {
+        grid-template-columns: 1fr;
+      }
+      header.app-header {
+        padding: 8px 12px;
+      }
+      .brand-title {
+        font-size: 15px;
+      }
+      #copyManifestBtn, #downloadBundleHeaderBtn {
+        font-size: 11px;
+        padding: 6px 10px;
+      }
     }
   </style>
 </head>
 <body>
-<div class="zoth-brand-bar"><span class="zoth-z">Z</span><span class="zoth-name">Zoth Studio</span><span class="zoth-tool">PWAManifest Builder</span><span class="zoth-spacer"></span><span class="zoth-badge">NULLAI · SOVEREIGN</span></div>
-
 
   <!-- Top Header -->
   <header class="app-header">
     <div class="brand-section">
-      <div class="brand-logo">P</div>
+      <div class="brand-logo" style="background: linear-gradient(135deg, #1a73e8, #ffd700);">P</div>
       <div>
         <span class="brand-title">PWA Manifest Studio</span>
-        <span class="brand-subtitle">v1.0.0</span>
+        <span class="brand-subtitle">v1.2.0</span>
+        <span class="pro-badge" id="headerProBadge">FREE TIER</span>
       </div>
     </div>
     <div class="header-actions">
@@ -702,12 +1169,31 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
         Copy Manifest
       </button>
+      <button class="btn btn-outlined" onclick="window.openLicenseModal()">
+        ⭐ Pro License
+      </button>
       <button class="btn btn-primary" id="downloadBundleHeaderBtn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
         Download PWA Bundle (.ZIP)
       </button>
     </div>
   </header>
+
+  <!-- High-Converting Sales Funnel Banner -->
+  <div class="sales-banner-wrap" id="salesBannerWrap">
+    <div class="sales-banner">
+      <div class="sales-banner-left">
+        <span class="sales-badge">FOUNDING ACCESS · SAVE 75%</span>
+        <span class="sales-headline">PWA Manifest Studio Pro: Production Bundler & ServiceWorker Suite</span>
+        <span class="sales-pricing"><del>$79</del> <strong>$19 Lifetime</strong> · Universal Credit Cards, Apple Pay, Google Pay, or Solana</span>
+      </div>
+      <div class="sales-banner-right">
+        <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" class="banner-cta-stripe">⚡ Unlock Pro · $19</a>
+        <button class="banner-cta-solana" onclick="window.payWithSolana()">🪙 Solana Pay</button>
+        <button class="banner-cta-key" onclick="window.openLicenseModal()">Enter Key</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Studio Workspace -->
   <main class="studio-container">
@@ -1091,15 +1577,29 @@
         </ul>
 
         <div class="bundle-actions">
-          <button class="btn btn-primary" id="downloadZipBtn" style="justify-content:center; width:100%;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
-            Download Bundle (.zip)
-          </button>
-          <button class="btn btn-outlined" id="exportManifestBtn" style="justify-content:center; width:100%;">
-            Download manifest.webmanifest
+          <div class="paywall-wrap is-locked" id="pwaBundlePaywallWrap">
+            <div class="paywall-content">
+              <button class="btn btn-primary" id="downloadZipBtn" style="justify-content:center; width:100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                Download Production Bundle (.zip)
+              </button>
+            </div>
+            <div class="paywall-overlay">
+              <div class="paywall-lock-badge">🔒 Pro Workstation</div>
+              <div class="paywall-title">Production PWA Bundle (.ZIP)</div>
+              <div class="paywall-subtitle">Includes compiled sw.js, offline fallback HTML, head tags, web share API, and icon assets.</div>
+              <div class="paywall-ctas">
+                <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" class="btn btn-primary" style="font-size:12px; padding:6px 12px; background:linear-gradient(135deg, #d4af37, #f3e5ab); color:#000; font-weight:700;">Unlock · $19</a>
+                <button class="btn btn-tonal" onclick="window.payWithSolana()" style="font-size:12px; padding:6px 12px;">Solana</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-outlined" id="exportManifestBtn" style="justify-content:center; width:100%; margin-top:8px;">
+            Download manifest.webmanifest (Free)
           </button>
           <button class="btn btn-outlined" id="exportSwBtn" style="justify-content:center; width:100%;">
-            Download sw.js
+            Download sw.js (Free)
           </button>
         </div>
       </div>
@@ -1561,7 +2061,7 @@ self.addEventListener('fetch', (event) => {
 <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
 
 <!-- ServiceWorker Registration -->
-<script>
+<` + `script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js', { scope: '${m.scope}' })
@@ -1786,44 +2286,215 @@ if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
       downloadTextFile('sw.js', buildCurrentServiceWorker(), 'application/javascript');
     });
 
-    // Download ZIP Bundle via Backend API or fallback
-    async function downloadBundle() {
-      const manifest = buildCurrentManifest();
-      const payload = {
-        manifest: manifest,
-        sw_config: {
-          cache_name: swCacheName.value,
-          cache_version: swCacheVer.value,
-          caching_strategy: swStrategy.value,
-          precache_urls: precacheAssets.value.split(',').map(s => s.trim()).filter(Boolean),
-          offline_fallback_url: '/offline.html'
+    // Zero-dependency pure client-side ZIP archive generator
+    function createZipArchive(files) {
+      const textEncoder = new TextEncoder();
+      const crcTable = new Uint32Array(256);
+      for (let i = 0; i < 256; i++) {
+        let c = i;
+        for (let k = 0; k < 8; k++) {
+          c = ((c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));
         }
-      };
-
-      try {
-        const resp = await fetch('/api/bundle', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        if (resp.ok) {
-          const blob = await resp.blob();
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = `${manifest.short_name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-pwa-bundle.zip`;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-          return;
+        crcTable[i] = c >>> 0;
+      }
+      function calcCrc32(bytes) {
+        let crc = 0xFFFFFFFF;
+        for (let i = 0; i < bytes.length; i++) {
+          crc = (crc >>> 8) ^ crcTable[(crc ^ bytes[i]) & 0xFF];
         }
-      } catch (err) {
-        console.warn('Backend bundle endpoint failed or offline, downloading individual files:', err);
+        return (crc ^ 0xFFFFFFFF) >>> 0;
       }
 
-      // Fallback: download manifest directly
-      downloadTextFile('manifest.webmanifest', JSON.stringify(manifest, null, 2), 'application/manifest+json');
+      const fileEntries = [];
+      let offset = 0;
+      const parts = [];
+
+      for (const file of files) {
+        const nameBytes = textEncoder.encode(file.name);
+        const dataBytes = typeof file.content === 'string' ? textEncoder.encode(file.content) : file.content;
+        const crc = calcCrc32(dataBytes);
+        const size = dataBytes.length;
+
+        // Local file header (30 bytes + name)
+        const header = new Uint8Array(30 + nameBytes.length);
+        const view = new DataView(header.buffer);
+        view.setUint32(0, 0x04034b50, true);
+        view.setUint16(4, 20, true);
+        view.setUint16(6, 0, true);
+        view.setUint16(8, 0, true);
+        view.setUint16(10, 0, true);
+        view.setUint16(12, 0, true);
+        view.setUint32(14, crc, true);
+        view.setUint32(18, size, true);
+        view.setUint32(22, size, true);
+        view.setUint16(26, nameBytes.length, true);
+        view.setUint16(28, 0, true);
+        header.set(nameBytes, 30);
+
+        fileEntries.push({ nameBytes, crc, size, offset });
+        parts.push(header);
+        parts.push(dataBytes);
+        offset += header.length + size;
+      }
+
+      const cdStart = offset;
+      let cdSize = 0;
+
+      for (const entry of fileEntries) {
+        // Central directory header (46 bytes + name)
+        const cd = new Uint8Array(46 + entry.nameBytes.length);
+        const view = new DataView(cd.buffer);
+        view.setUint32(0, 0x02014b50, true);
+        view.setUint16(4, 20, true);
+        view.setUint16(6, 20, true);
+        view.setUint16(8, 0, true);
+        view.setUint16(10, 0, true);
+        view.setUint16(12, 0, true);
+        view.setUint16(14, 0, true);
+        view.setUint32(16, entry.crc, true);
+        view.setUint32(20, entry.size, true);
+        view.setUint32(24, entry.size, true);
+        view.setUint16(28, entry.nameBytes.length, true);
+        view.setUint16(30, 0, true);
+        view.setUint16(32, 0, true);
+        view.setUint16(34, 0, true);
+        view.setUint16(36, 0, true);
+        view.setUint32(38, 0, true);
+        view.setUint32(42, entry.offset, true);
+        cd.set(entry.nameBytes, 46);
+
+        parts.push(cd);
+        cdSize += cd.length;
+      }
+
+      // End of central directory record (22 bytes)
+      const eocd = new Uint8Array(22);
+      const eocdView = new DataView(eocd.buffer);
+      eocdView.setUint32(0, 0x06054b50, true);
+      eocdView.setUint16(4, 0, true);
+      eocdView.setUint16(6, 0, true);
+      eocdView.setUint16(8, fileEntries.length, true);
+      eocdView.setUint16(10, fileEntries.length, true);
+      eocdView.setUint32(12, cdSize, true);
+      eocdView.setUint32(16, cdStart, true);
+      eocdView.setUint16(20, 0, true);
+      parts.push(eocd);
+
+      return new Blob(parts, { type: 'application/zip' });
+    }
+
+    // License Management & Action Interceptors
+    const LICENSE_STORAGE_KEY = 'pwa_pro_licensed';
+
+    function isLicensed() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('licensed') === 'true' || urlParams.get('pro') === 'true') {
+        localStorage.setItem(LICENSE_STORAGE_KEY, 'true');
+        return true;
+      }
+      return localStorage.getItem(LICENSE_STORAGE_KEY) === 'true';
+    }
+
+    function updateLicenseUI() {
+      const licensed = isLicensed();
+      const badge = document.getElementById('headerProBadge');
+      const paywallWrap = document.getElementById('pwaBundlePaywallWrap');
+      const banner = document.getElementById('salesBannerWrap');
+      if (licensed) {
+        if (badge) {
+          badge.textContent = '⭐ PRO ACTIVE · UNLOCKED';
+          badge.style.background = 'linear-gradient(135deg, rgba(212,175,55,0.2), rgba(255,215,0,0.3))';
+          badge.style.color = '#ffd700';
+          badge.style.border = '1px solid #ffd700';
+        }
+        if (paywallWrap) {
+          paywallWrap.classList.remove('is-locked');
+        }
+        if (banner) {
+          banner.style.display = 'none';
+        }
+      } else {
+        if (badge) {
+          badge.textContent = 'FREE TIER';
+        }
+        if (paywallWrap) {
+          paywallWrap.classList.add('is-locked');
+        }
+        if (banner) {
+          banner.style.display = 'block';
+        }
+      }
+    }
+
+    window.openLicenseModal = function() {
+      document.getElementById('proModal').style.display = 'flex';
+    };
+
+    window.closeLicenseModal = function() {
+      document.getElementById('proModal').style.display = 'none';
+    };
+
+    window.activateLicenseKey = function() {
+      const keyInput = document.getElementById('licenseKeyInput');
+      const val = (keyInput ? keyInput.value : '').trim();
+      if (val.length >= 4) {
+        localStorage.setItem(LICENSE_STORAGE_KEY, 'true');
+        updateLicenseUI();
+        window.closeLicenseModal();
+        alert('License Activated! PWA Manifest Studio Pro is now unlocked.');
+      } else {
+        alert('Please enter a valid license key or receipt order ID.');
+      }
+    };
+
+    window.payWithSolana = function() {
+      const solAddr = 'GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK';
+      navigator.clipboard?.writeText(solAddr);
+      alert('Solana Receiver Address copied to clipboard:\n' + solAddr + '\n\nSend 0.09 SOL (~$19 USD) to activate lifetime access, or use Stripe for instant automated activation.');
+    };
+
+    // Download Production PWA ZIP Bundle (100% In-Browser)
+    async function downloadBundle() {
+      if (!isLicensed()) {
+        window.openLicenseModal();
+        return;
+      }
+
+      const manifest = buildCurrentManifest();
+      const swCode = buildCurrentServiceWorker();
+      const headTags = buildCurrentHeadTags();
+      const offlineHtml = buildCurrentOfflineHtml();
+      const shareCode = buildShareReceiverScript();
+      const fileCode = buildFileHandlerScript();
+
+      const glyph = PRESETS[templateSelect.value]?.glyph || (manifest.short_name || 'P')[0];
+      const themeCol = manifest.theme_color || '#1a73e8';
+      const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="${themeCol}"/>
+  <text x="256" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="220" font-weight="bold" fill="#ffffff" text-anchor="middle">${glyph}</text>
+</svg>`;
+
+      const files = [
+        { name: 'manifest.webmanifest', content: JSON.stringify(manifest, null, 2) },
+        { name: 'sw.js', content: swCode },
+        { name: 'index-head-tags.html', content: headTags },
+        { name: 'offline.html', content: offlineHtml },
+        { name: 'share-receiver.js', content: shareCode },
+        { name: 'file-handler.js', content: fileCode },
+        { name: 'icons/icon-512.svg', content: iconSvg },
+        { name: 'README-PWA.md', content: `# ${manifest.name} PWA Bundle\n\nGenerated by PWA Manifest Studio (100% In-Browser Client-Side).\n\n## Quick Setup\n1. Place 'manifest.webmanifest' and 'sw.js' in your web root.\n2. Paste 'index-head-tags.html' into your HTML head section.\n3. Deploy to Netlify, Vercel, or any static host with HTTPS!\n` }
+      ];
+
+      const zipBlob = createZipArchive(files);
+      const url = URL.createObjectURL(zipBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      const safeName = (manifest.short_name || 'pwa').toLowerCase().replace(/[^a-z0-9]/g, '-');
+      a.download = `${safeName}-pwa-bundle.zip`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
     document.getElementById('downloadZipBtn').addEventListener('click', downloadBundle);
@@ -1831,7 +2502,48 @@ if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
 
     // Initial setup
     updateAll();
+    updateLicenseUI();
   </script>
-  <footer class="zoth-brand-footer"><div class="zoth-foot-name">Zoth Studio</div><div>NullAI Tech &middot; Sovereign Local-First AI &middot; <a href="https://github.com/1nc0gn30" target="_blank" rel="noopener">GitHub</a></div></footer>
+
+  <!-- Pro Paywall Modal -->
+  <div class="pro-modal-backdrop" id="proModal" onclick="if(event.target===this) window.closeLicenseModal()">
+    <div class="pro-modal-card">
+      <div class="pro-modal-header">
+        <div>
+          <div class="pro-modal-title">⭐ Upgrade to PWA Manifest Studio Pro</div>
+          <div style="font-size:12px; color:var(--md-sys-color-on-surface-variant); margin-top:2px;">Founding Lifetime Access · $19 One-Time</div>
+        </div>
+        <button class="pro-modal-close" onclick="window.closeLicenseModal()">&times;</button>
+      </div>
+
+      <div class="pro-modal-benefits">
+        <div class="pro-benefit-item"><span class="pro-benefit-icon">✓</span> 100% Client-Side Production ZIP Bundler</div>
+        <div class="pro-benefit-item"><span class="pro-benefit-icon">✓</span> Complete Offline ServiceWorker Suite</div>
+        <div class="pro-benefit-item"><span class="pro-benefit-icon">✓</span> Precache & Stale-While-Revalidate Engine</div>
+        <div class="pro-benefit-item"><span class="pro-benefit-icon">✓</span> Web Share & File Handler Scripts</div>
+        <div class="pro-benefit-item"><span class="pro-benefit-icon">✓</span> SVG App Icon Generator & Assets</div>
+        <div class="pro-benefit-item"><span class="pro-benefit-icon">✓</span> Commercial License & Zero Cloud Egress</div>
+      </div>
+
+      <div class="pro-modal-ctas">
+        <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" class="modal-cta-stripe">
+          💳 Instant Checkout with Stripe ($19)
+        </a>
+        <button class="modal-cta-solana" onclick="window.payWithSolana()">
+          🪙 Pay with Solana (0.09 SOL)
+        </button>
+      </div>
+
+      <div class="pro-key-form">
+        <input type="text" id="licenseKeyInput" class="pro-key-input" placeholder="Enter license key or receipt ID...">
+        <button class="pro-key-submit" onclick="window.activateLicenseKey()">Activate</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div>Engineered by Neal Frazier Tech (<a href="https://github.com/1nc0gn30" target="_blank" rel="noopener">@1nc0gn30</a>) &bull; <a href="https://nullai.tech" target="_blank" rel="noopener">NullAI Platform</a> &bull; <a href="https://github.com/NullAITech/pwa-manifest-builder" target="_blank" rel="noopener">Source Code</a></div>
+    <div style="font-size:12px; color:var(--md-sys-color-on-surface-variant); margin-top:4px;">100% In-Browser Client-Side PWA Studio &bull; Zero Cloud Egress</div>
+  </footer>
 </body>
 </html>
