@@ -1,17 +1,24 @@
 {
   "name": "pwa-manifest-builder",
-  "version": "2.0.0",
-  "description": "Zero-Dependency Progressive Web App (PWA) Manifest Studio, ServiceWorker Architect & Icon Forge — Desktop Workstation",
+  "version": "2.5.0",
+  "description": "Zero-Dependency Progressive Web App (PWA) Manifest Studio, ServiceWorker Architect & Icon Forge — Desktop & Web Workstation",
   "main": "electron/main.cjs",
+  "homepage": "https://pwabuilder.nullai.tech",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1nc0gn30/pwa-manifest-builder.git"
+  },
   "bin": {
     "pwa-builder": "./bin/pwa-builder.js",
     "pwa-manifest-builder": "./bin/pwa-builder.js"
   },
   "scripts": {
-    "start": "python3 -m pwa_manifest_builder.cli serve --port 8088",
+    "start": "python3 -m http.server 8100 --directory public",
+    "serve:public": "python3 -m http.server 8100 --directory public",
     "electron": "electron .",
     "app": "electron .",
-    "test": "pytest tests/"
+    "test": "pytest tests/",
+    "test:ui": "python3 scripts/verify_ui.py"
   },
   "keywords": [
     "pwa",
@@ -23,9 +30,9 @@
     "zero-egress",
     "sovereign",
     "electron",
-    "zoth"
+    "nullai"
   ],
-  "author": "NullAI Tech / Zoth Team",
+  "author": "Neal Frazier Tech (@1nc0gn30) • NullAI Platform",
   "license": "MIT",
   "devDependencies": {
     "electron": "^34.5.8"
