@@ -1569,7 +1569,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_icons.add_argument("-f", "--fg-color", default="#ffffff", help="Foreground/glyph hex color")
     p_icons.add_argument("--shape", choices=["rounded", "circle", "square", "squircle", "hex"], default="rounded", help="Icon container shape")
     p_icons.add_argument("--icon-name", help="Vector icon glyph name (sparkles, bolt, code, rocket, cube, store, chart, music, terminal, chat, check, heart, book, game, shield, globe, star)")
-    p_icons.add_argument("--maskable", action="store_true", help="Apply 10% Android safe-zone padding")
+    p_icons.add_argument("--maskable", action="store_true", help="Apply 10%% Android safe-zone padding")
     p_icons.add_argument("--sizes", default="192,512", help="Comma-separated sizes (e.g. '192,512')")
     p_icons.add_argument("-o", "--output-dir", help="Directory to save generated icon suite")
     p_icons.add_argument("--all-sizes", action="store_true", help="Generate full standard PWA suite (16 to 512, apple-touch, maskable)")
