@@ -65,6 +65,24 @@ SERVER_VERSION = "1.0.0"
 SERVER_START_TIME = time.time()
 
 # Locate public/index.html with fallback paths
+def _is_local_origin(origin) -> bool:
+    """True for no Origin (CLI/curl/same-origin GET) or a localhost origin."""
+    if not origin:
+        return True
+    from urllib.parse import urlparse
+    try:
+        u = urlparse(origin)
+    except Exception:
+        return False
+    return u.scheme in ("http", "https") and (u.hostname or "") in ("localhost", "127.0.0.1", "::1")
+
+
+def _cors_origin(handler) -> str:
+    """Echo the Origin only when it is local; never '*'."""
+    origin = handler.headers.get("Origin", "")
+    return origin if origin and _is_local_origin(origin) else "http://127.0.0.1"
+
+
 def _find_static_index_html() -> Optional[str]:
     """Finds and reads public/index.html relative to package or repo root."""
     possible_paths = [
@@ -116,7 +134,7 @@ class PWARequestHandler(BaseHTTPRequestHandler):
             sys.stderr.write(f"[PWA Server] {self.address_string()} - {format % args}\n")
 
     def _send_cors_headers(self) -> None:
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Origin", _cors_origin(self))
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE")
         self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With")
 
@@ -283,6 +301,12 @@ class PWARequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         """Dispatch POST requests."""
+
+        if not _is_local_origin(self.headers.get("Origin")):
+
+            self.send_error(403, "Cross-origin request blocked")
+
+            return
         parsed_url = urllib.parse.urlparse(self.path)
         path = parsed_url.path.rstrip("/")
 
