@@ -1,5 +1,9 @@
 # PWA Manifest Studio & Builder 🚀
 
+> ⚡ **Live Web Application**: [https://pwa-manifest-builder.netlify.app](https://pwa-manifest-builder.netlify.app)  
+> 💳 **Unlock Pro Lifetime License ($19 One-Time, $0/mo)**: **[Instant Pro Unlock via Stripe](https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L)** *(Use promo code `FOUNDER25` for 25% off)*  
+> 🏆 **All-Access Sovereign Pro Bundle (All 44 Tools — $49 Lifetime)**: **[Get All 44 Studios via Stripe](https://buy.stripe.com/eVq14m5k16hW4Le0xWfw40M)**
+
 A zero-dependency, production-grade Progressive Web App (PWA) manifest generator, ServiceWorker architect, SVG icon forge, Lighthouse installability linter, Model Context Protocol (MCP) server, and Material 3 Web Studio UI (design influenced by Material 3 tokens).
 
 **100% Python Standard Library** — zero third-party runtime dependencies. Runs everywhere Python 3.9+ runs (Linux, macOS, Windows, Termux/Android).
