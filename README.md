@@ -1,8 +1,18 @@
 # PWA Manifest Studio & Builder 🚀
 
-A zero-dependency, production-grade Progressive Web App (PWA) manifest generator, ServiceWorker architect, SVG icon forge, Lighthouse installability linter, Model Context Protocol (MCP) server, and Material 3 Web Studio UI (design influenced by Material 3 tokens).
+[![Live Web Studio](https://img.shields.io/badge/Live%20App-pwabuilder.nullai.tech-00C7B7?style=flat&logo=netlify)](https://pwabuilder.nullai.tech)
+[![License: Pro](https://img.shields.io/badge/Pro%20Lifetime-$19%20USD-635BFF?style=flat&logo=stripe)](https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L)
+[![Solana Pay](https://img.shields.io/badge/Solana-DePay%20Accepted-14F195?style=flat&logo=solana)](https://pwabuilder.nullai.tech)
+[![Zoth Studio Ready](https://img.shields.io/badge/Zoth%20Studio-God%20Mode%20Active-D4AF37?style=flat)](https://zoth.nullai.tech/tools/pwa-manifest-builder)
 
-**100% Python Standard Library** — zero third-party runtime dependencies. Runs everywhere Python 3.9+ runs (Linux, macOS, Windows, Termux/Android).
+A zero-dependency, production-grade Progressive Web App (PWA) manifest generator, ServiceWorker architect, SVG icon forge, Lighthouse installability linter, Model Context Protocol (MCP) server, and in-browser Studio UI with zero-dependency pure client-side PKZIP exporter.
+
+- 🌐 **Live Web Studio**: [https://pwabuilder.nullai.tech](https://pwabuilder.nullai.tech)
+- 💻 **Zoth Studio Enclave**: [https://zoth.nullai.tech/tools/pwa-manifest-builder](https://zoth.nullai.tech/tools/pwa-manifest-builder)
+- 💳 **Founding Member License**: $19 Lifetime (Regular $79) via [Stripe](https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L) or Solana DePay (`GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`).
+- ⚡ **Attribution**: Engineered by Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
+
+**100% Python Standard Library & Zero-Dependency In-Browser Client JS** — zero third-party runtime dependencies. Runs everywhere Python 3.9+ runs (Linux, macOS, Windows, Termux/Android) or directly in client silicon.
 
 ---
 
