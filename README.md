@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="assets/hero-banner.svg" alt="Pwa Manifest Builder — Sovereign Architecture Banner" width="100%" />
+</div>
+
+<br />
+
 # PWA Manifest Studio & Builder 🚀
 
 [![Live Web Studio](https://img.shields.io/badge/Live%20App-pwabuilder.nullai.tech-00C7B7?style=flat&logo=netlify)](https://pwabuilder.nullai.tech)
