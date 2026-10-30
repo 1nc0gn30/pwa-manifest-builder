@@ -1,0 +1,253 @@
+/* ==========================================================================
+   PWA Manifest Studio — Wave Refinements
+   Form hierarchy, visible focus rings, preview surface polish, and motion
+   ========================================================================== */
+
+/* --- 1. Manifest Form Hierarchy & Structure --- */
+
+.card {
+  border-color: var(--md-sys-color-outline);
+}
+
+.preset-box {
+  background: var(--md-sys-color-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 14px;
+}
+
+[data-theme="dark"] .preset-box {
+  background: rgba(48, 49, 52, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.preset-box label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-sys-color-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+#templateSelect {
+  border: 1px solid var(--md-sys-color-outline);
+  font-weight: 500;
+}
+
+.tab-bar {
+  border-bottom: 1px solid var(--md-sys-color-outline);
+  gap: 2px;
+}
+
+.tab-btn {
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.tab-btn:hover {
+  color: var(--md-sys-color-on-surface);
+}
+
+.tab-btn.active {
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+  border-bottom: 2px solid var(--md-sys-color-primary);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control {
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 9px 12px;
+  font-size: 13px;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+
+.color-picker-row {
+  gap: 10px;
+}
+
+.color-input-preview {
+  border: 1px solid var(--md-sys-color-outline);
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.color-input-preview:hover {
+  transform: scale(1.05);
+}
+
+/* --- 2. Visible Focus System --- */
+
+.form-control:focus,
+.form-control:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 1px;
+  border-color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-surface);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.22);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-control:focus-visible {
+  box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.28);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+.tab-btn:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: -1px;
+  border-radius: var(--radius-sm);
+}
+
+.view-toggle-btn:focus-visible,
+.segmented-btn:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 1px;
+}
+
+.color-input-preview:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+.banner-cta-stripe:focus-visible,
+.banner-cta-solana:focus-visible,
+.banner-cta-key:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+/* --- 3. Preview Surface Hierarchy & Polish --- */
+
+.viewport-header #previewStatusLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.device-stage {
+  border: 1px solid var(--md-sys-color-outline);
+  background: radial-gradient(circle at 50% 40%, var(--md-sys-color-surface-variant) 0%, transparent 72%);
+}
+
+.phone-mockup {
+  box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.phone-status-bar {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.install-sheet {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.install-app-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.install-app-domain {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.install-icon-preview,
+.splash-icon,
+.home-icon {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.install-icon-preview:hover,
+.splash-icon:hover,
+.home-icon:hover {
+  transform: scale(1.03);
+}
+
+.splash-title {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.home-app-label {
+  font-weight: 500;
+  font-size: 10.5px;
+}
+
+/* --- 4. Short Transform/Opacity Motion on Preview Updates --- */
+
+@keyframes wavePreviewEntrance {
+  0% {
+    opacity: 0.72;
+    transform: translateY(6px) scale(0.992);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.screen-view.active {
+  animation: wavePreviewEntrance 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.screen-view.active .install-sheet {
+  animation: wavePreviewEntrance 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.screen-view.active .splash-preview {
+  animation: wavePreviewEntrance 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.screen-view.active .homescreen-preview {
+  animation: wavePreviewEntrance 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.code-stage.active {
+  animation: wavePreviewEntrance 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- 5. Prefers-Reduced-Motion Accessibility Guard --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-view.active,
+  .screen-view.active .install-sheet,
+  .screen-view.active .splash-preview,
+  .screen-view.active .homescreen-preview,
+  .code-stage.active,
+  .install-icon-preview,
+  .splash-icon,
+  .home-icon,
+  .form-control,
+  .btn,
+  .tab-btn,
+  .color-input-preview {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

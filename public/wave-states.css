@@ -1,0 +1,361 @@
+/* ==========================================================================
+   PWA Manifest Studio — Wave States Refinements
+   :focus-visible, hover, empty and error presentation, and prefers-reduced-motion
+   ========================================================================== */
+
+/* --- 1. Focus-Visible Keyboard Navigation --- */
+
+/* Form controls & inputs */
+.form-control:focus-visible,
+select.form-control:focus-visible,
+textarea.form-control:focus-visible,
+#templateSelect:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 2px !important;
+  border-color: var(--md-sys-color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.25) !important;
+}
+
+[data-theme="dark"] .form-control:focus-visible,
+[data-theme="dark"] select.form-control:focus-visible,
+[data-theme="dark"] textarea.form-control:focus-visible,
+[data-theme="dark"] #templateSelect:focus-visible {
+  box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.3) !important;
+}
+
+/* Action buttons */
+.btn:focus-visible,
+.btn-primary:focus-visible,
+.btn-tonal:focus-visible,
+.btn-outlined:focus-visible,
+.btn-icon:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Navigation tabs & segment toggles */
+.tab-btn:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: -1px !important;
+}
+
+.view-toggle-btn:focus-visible,
+.segmented-btn:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 1px !important;
+}
+
+/* Color previews & checkboxes */
+.color-input-preview:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+.form-group input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Banner & modal CTAs */
+.banner-cta-stripe:focus-visible,
+.banner-cta-solana:focus-visible,
+.banner-cta-key:focus-visible,
+.modal-cta-stripe:focus-visible,
+.modal-cta-solana:focus-visible,
+.pro-modal-close:focus-visible,
+.pro-key-submit:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+.pro-key-input:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 1px !important;
+  border-color: var(--md-sys-color-primary) !important;
+}
+
+/* --- 2. Tactile Hover & Active States --- */
+
+/* Interactive buttons */
+.btn-primary {
+  transition: background-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--md-elevation-1);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.btn-tonal {
+  transition: background-color 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+.btn-tonal:hover {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.btn-tonal:active {
+  transform: translateY(1px);
+}
+
+.btn-outlined {
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.btn-outlined:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  border-color: var(--md-sys-color-primary);
+}
+
+.btn-outlined:active {
+  transform: translateY(1px);
+}
+
+.btn-icon {
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.btn-icon:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.btn-icon:active {
+  transform: scale(0.95);
+}
+
+/* Tab & view switcher hover */
+.tab-btn {
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.tab-btn:hover:not(.active) {
+  background-color: rgba(128, 128, 128, 0.06);
+}
+
+.tab-btn:active {
+  transform: translateY(1px);
+}
+
+.view-toggle-btn,
+.segmented-btn {
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.view-toggle-btn:hover:not(.active),
+.segmented-btn:hover:not(.active) {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+/* Sales banner CTAs */
+.banner-cta-stripe {
+  transition: background 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+
+.banner-cta-stripe:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.35);
+}
+
+.banner-cta-stripe:active {
+  transform: translateY(0);
+}
+
+.banner-cta-solana {
+  transition: background 140ms ease, transform 140ms ease, border-color 140ms ease;
+}
+
+.banner-cta-solana:hover {
+  transform: translateY(-1px);
+  border-color: #9945ff;
+}
+
+.banner-cta-solana:active {
+  transform: translateY(0);
+}
+
+.banner-cta-key {
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.banner-cta-key:hover {
+  border-color: var(--md-sys-color-outline);
+}
+
+/* Modal interactions */
+.pro-modal-close {
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.pro-modal-close:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  transform: scale(1.08);
+}
+
+.modal-cta-stripe {
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.modal-cta-stripe:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+}
+
+.modal-cta-solana {
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.modal-cta-solana:hover {
+  transform: translateY(-1px);
+  border-color: #9945ff;
+}
+
+.pro-key-submit {
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.pro-key-submit:hover {
+  filter: brightness(1.08);
+}
+
+.pro-key-submit:active {
+  transform: translateY(1px);
+}
+
+/* Form input hover */
+.form-control:hover:not(:focus):not(:disabled) {
+  border-color: var(--md-sys-color-on-surface-variant);
+}
+
+.preset-box {
+  transition: border-color 140ms ease;
+}
+
+.preset-box:hover {
+  border-color: var(--md-sys-color-primary);
+}
+
+/* Checklist item hover */
+.checklist-item {
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.checklist-item:hover {
+  background-color: rgba(128, 128, 128, 0.08);
+}
+
+/* Pro benefit item hover */
+.pro-benefit-item {
+  transition: transform 140ms ease, color 140ms ease;
+}
+
+.pro-benefit-item:hover {
+  transform: translateX(2px);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* --- 3. Empty & Placeholder Presentation --- */
+
+.form-control::placeholder,
+.pro-key-input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.65;
+  font-style: italic;
+  font-size: 12.5px;
+}
+
+.form-control:placeholder-shown {
+  border-color: var(--md-sys-color-outline);
+}
+
+.audit-checklist:empty::before {
+  content: "No audit checks evaluated yet.";
+  display: block;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 12px;
+  text-align: center;
+}
+
+.code-editor-box:empty::before {
+  content: "Generated bundle output will display here...";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.6;
+  padding: 16px;
+}
+
+/* --- 4. Error & Validation Presentation --- */
+
+/* Invalid form controls */
+.form-control:invalid:not(:placeholder-shown) {
+  border-color: var(--md-sys-color-error) !important;
+  background-color: rgba(217, 48, 37, 0.04);
+  box-shadow: 0 0 0 2px rgba(217, 48, 37, 0.18) !important;
+}
+
+[data-theme="dark"] .form-control:invalid:not(:placeholder-shown) {
+  background-color: rgba(242, 139, 130, 0.06);
+  box-shadow: 0 0 0 2px rgba(242, 139, 130, 0.22) !important;
+}
+
+/* Audit checklist item failed state presentation */
+.checklist-pill.fail {
+  background-color: var(--md-sys-color-error) !important;
+  box-shadow: 0 0 0 2px rgba(217, 48, 37, 0.25);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .checklist-pill.fail {
+  box-shadow: 0 0 0 2px rgba(242, 139, 130, 0.3);
+}
+
+.checklist-item:has(.checklist-pill.fail) {
+  border-left: 3px solid var(--md-sys-color-error);
+  background-color: rgba(217, 48, 37, 0.06);
+}
+
+[data-theme="dark"] .checklist-item:has(.checklist-pill.fail) {
+  background-color: rgba(242, 139, 130, 0.08);
+}
+
+.checklist-item:has(.checklist-pill.pass) {
+  border-left: 3px solid var(--md-sys-color-success);
+}
+
+/* --- 5. Prefers-Reduced-Motion Guard --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn-primary,
+  .btn-tonal,
+  .btn-outlined,
+  .btn-icon,
+  .tab-btn,
+  .view-toggle-btn,
+  .segmented-btn,
+  .form-control,
+  .preset-box,
+  .banner-cta-stripe,
+  .banner-cta-solana,
+  .banner-cta-key,
+  .modal-cta-stripe,
+  .modal-cta-solana,
+  .pro-modal-close,
+  .pro-key-submit,
+  .checklist-item,
+  .pro-benefit-item,
+  .color-input-preview {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}

@@ -235,9 +235,11 @@ class PWARequestHandler(BaseHTTPRequestHandler):
             })
             return
 
-        # 6. Diagnostics
-        if path == "/api/diagnostics":
+        # 6. Diagnostics & Health
+        if path in ("/health", "/api/health", "/api/diagnostics"):
             self._send_json_response({
+                "status": "healthy",
+                "service": "pwa-manifest-builder",
                 "server_name": "PWA Manifest Studio UI Server",
                 "version": SERVER_VERSION,
                 "python_version": sys.version,
