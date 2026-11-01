@@ -16,7 +16,7 @@ A zero-dependency, production-grade Progressive Web App (PWA) manifest generator
 - 🌐 **Live Web Studio**: [https://pwabuilder.nullai.tech](https://pwabuilder.nullai.tech)
 - 💻 **Zoth Studio Enclave**: [https://zoth.nullai.tech/tools/pwa-manifest-builder](https://zoth.nullai.tech/tools/pwa-manifest-builder)
 - ☕ **Support Development**: 100% Free & Open Access via [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X) or Solana Tip (`GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`).
-- ⚡ **Attribution**: Engineered by Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
+- ⚡ **Attribution**: Engineered by 1nc0gn30 • NullAI ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
 
 **100% Python Standard Library & Zero-Dependency In-Browser Client JS** — zero third-party runtime dependencies. Runs everywhere Python 3.9+ runs (Linux, macOS, Windows, Termux/Android) or directly in client silicon.
 

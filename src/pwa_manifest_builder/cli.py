@@ -181,7 +181,7 @@ def cmd_generate(args: argparse.Namespace, color_ok: bool) -> int:
                 overrides["orientation"] = Orientation.from_string(args.orientation)
 
             manifest_cfg, _ = generate_from_template(args.template, **overrides)
-            if not args.quiet:
+            if not args.quiet and not args.json:
                 print(colorize(f"ℹ Using template preset: '{args.template}'", Color.CYAN, color_ok))
         except Exception as e:
             print(colorize(f"✖ Error loading template '{args.template}': {str(e)}", Color.BRIGHT_RED, color_ok), file=sys.stderr)
@@ -326,10 +326,16 @@ def cmd_audit(args: argparse.Namespace, color_ok: bool) -> int:
         raw_content = sys.stdin.read()
     else:
         p = Path(manifest_source).resolve()
-        if not p.exists():
-            print(colorize(f"✖ Manifest file not found: {manifest_source}", Color.BRIGHT_RED, color_ok), file=sys.stderr)
-            return 1
-        raw_content = read_text_safe(p)
+        if p.exists():
+            raw_content = read_text_safe(p)
+        else:
+            from .catalog import get_template
+            tpl = get_template(manifest_source)
+            if tpl:
+                raw_content = generate_manifest_json(tpl.manifest_config, indent=2)
+            else:
+                print(colorize(f"✖ Manifest file not found: {manifest_source}", Color.BRIGHT_RED, color_ok), file=sys.stderr)
+                return 1
 
     try:
         manifest_data = json.loads(raw_content)
@@ -340,7 +346,7 @@ def cmd_audit(args: argparse.Namespace, color_ok: bool) -> int:
     report = validate_manifest(manifest_data)
 
     if args.json:
-        print(report.to_json(indent=2))
+        print(json.dumps(report.to_dict(), indent=2))
         if args.strict and (report.installable_score < 100 or report.has_errors()):
             return 1
         return 0
@@ -963,6 +969,7 @@ class _StudioRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 def cmd_serve(args: argparse.Namespace, color_ok: bool) -> int:
     """Handle 'serve' subcommand: launch Google Material 3 PWA Studio Web UI."""
+    from .ui_server import start_ui_server
     port = int(args.port or 8080)
     host = args.host or "127.0.0.1"
 
@@ -972,18 +979,9 @@ def cmd_serve(args: argparse.Namespace, color_ok: bool) -> int:
     print(colorize("  Press Ctrl+C to stop the server.", Color.YELLOW, color_ok))
     print()
 
-    if args.open:
-        try:
-            webbrowser.open(url)
-        except Exception:
-            pass
-
     try:
-        class _ThreadingServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
-            daemon_threads = True
-
-        server = _ThreadingServer((host, port), _StudioRequestHandler)
-        server.serve_forever()
+        start_ui_server(host=host, port=port, open_browser=bool(args.open))
+        return 0
     except KeyboardInterrupt:
         print()
         print(colorize("PWA Studio server stopped.", Color.DIM, color_ok))
