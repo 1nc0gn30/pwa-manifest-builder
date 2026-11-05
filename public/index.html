@@ -1839,7 +1839,23 @@ self.addEventListener('fetch', (event) => {
   <h1>You're currently offline</h1>
   <p>${m.name} is ready for offline use. Reconnect to sync latest updates.</p>
   <button onclick="window.location.reload()">Retry Connection</button>
-  <script src="/assets/sovereign-upgrade.js" defer></script>
+  
+
+  <script src="/sovereign_tutorial.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      if (window.createSovereignTutorial) {
+        window.createSovereignTutorial({
+          toolId: "pwa-manifest-builder",
+          toolName: "PWA Manifest Studio",
+          tagline: "Turn any website into an installable mobile and desktop app in 60 seconds!",
+          accentColor: "#06B6D4",
+          steps: [{"icon": "\ud83d\udcf1", "title": "What is a PWA?", "desc": "Progressive Web Apps let users install your website as a real app on their iPhone, Android, or PC desktop with its own icon!"}, {"icon": "\ud83c\udfa8", "title": "Generate All Icon Sizes", "desc": "Upload one high-res square logo and the tool automatically generates 192x192, 512x512, and maskable icons."}, {"icon": "\u26a1", "title": "Service Worker & Manifest", "desc": "Generates production-ready `manifest.json` and offline cache service workers ready to copy and paste."}]
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>`;
     }
@@ -2224,5 +2240,21 @@ if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
     <div>Engineered by 1nc0gn30 • NullAI (<a href="https://github.com/1nc0gn30" target="_blank" rel="noopener">@1nc0gn30</a>) &bull; <a href="https://nullai.tech" target="_blank" rel="noopener">NullAI Platform</a> &bull; <a href="https://github.com/1nc0gn30/pwa-manifest-builder" target="_blank" rel="noopener">Source Code</a></div>
     <div style="font-size:12px; color:var(--md-sys-color-on-surface-variant); margin-top:4px;">100% In-Browser Client-Side PWA Studio &bull; Zero Cloud Egress</div>
   </footer>
+
+  <script src="/sovereign_tutorial.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      if (window.createSovereignTutorial) {
+        window.createSovereignTutorial({
+          toolId: "pwa-manifest-builder",
+          toolName: "PWA Manifest Studio",
+          tagline: "Turn any website into an installable mobile and desktop app in 60 seconds!",
+          accentColor: "#06B6D4",
+          steps: [{"icon": "\ud83d\udcf1", "title": "What is a PWA?", "desc": "Progressive Web Apps let users install your website as a real app on their iPhone, Android, or PC desktop with its own icon!"}, {"icon": "\ud83c\udfa8", "title": "Generate All Icon Sizes", "desc": "Upload one high-res square logo and the tool automatically generates 192x192, 512x512, and maskable icons."}, {"icon": "\u26a1", "title": "Service Worker & Manifest", "desc": "Generates production-ready `manifest.json` and offline cache service workers ready to copy and paste."}]
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
