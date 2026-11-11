@@ -1,244 +1,97 @@
-<div align="center">
-  <img src="assets/hero-banner.svg" alt="Pwa Manifest Builder — Sovereign Architecture Banner" width="100%" />
-</div>
+# PWA Manifest Builder
 
-<br />
+![PWA Manifest Builder](assets/hero-banner.svg)
 
-# PWA Manifest Studio & Builder 🚀
+Zero-dependency W3C Progressive Web App (`manifest.webmanifest`) compiler, offline ServiceWorker (`sw.js`) generator, SVG/maskable icon forge, Web Share Target and File Handling API validator, installability linter, and Model Context Protocol (MCP) server.
 
-[![Live Web Studio](https://img.shields.io/badge/Live%20App-pwabuilder.nullai.tech-00C7B7?style=flat&logo=netlify)](https://pwabuilder.nullai.tech)
-[![Buy Us a Coffee](https://img.shields.io/badge/☕%20Buy%20Us%20a%20Coffee-Stripe-635BFF?style=flat&logo=stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X)
-[![Solana Tip](https://img.shields.io/badge/Solana-Tip%20Accepted-14F195?style=flat&logo=solana)](https://pwabuilder.nullai.tech)
-[![Zoth Studio Ready](https://img.shields.io/badge/Zoth%20Studio-God%20Mode%20Active-D4AF37?style=flat)](https://zoth.nullai.tech/tools/pwa-manifest-builder)
+- **Local Workstation**: `http://127.0.0.1:8100`
+- **Zoth Studio v2 Dossier**: [https://zoth.nullai.tech/tools/pwa-manifest-builder](https://zoth.nullai.tech/tools/pwa-manifest-builder)
+- **Repository**: [https://github.com/1nc0gn30/pwa-manifest-builder](https://github.com/1nc0gn30/pwa-manifest-builder)
 
-A zero-dependency, production-grade Progressive Web App (PWA) manifest generator, ServiceWorker architect, SVG icon forge, Lighthouse installability linter, Model Context Protocol (MCP) server, and in-browser Studio UI with zero-dependency pure client-side PKZIP exporter.
+## Overview
 
-- 🌐 **Live Web Studio**: [https://pwabuilder.nullai.tech](https://pwabuilder.nullai.tech)
-- 💻 **Zoth Studio Enclave**: [https://zoth.nullai.tech/tools/pwa-manifest-builder](https://zoth.nullai.tech/tools/pwa-manifest-builder)
-- ☕ **Support Development**: 100% Free & Open Access via [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X) or Solana Tip (`GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`).
-- ⚡ **Attribution**: Engineered by 1nc0gn30 • NullAI ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
+PWA Manifest Builder is engineered in pure Python 3.9+ standard library modules (`json`, `zipfile`, `http.server`, `urllib`) paired with a standalone in-browser Studio UI. It generates, validates, and packages installable Progressive Web App configurations across Chromium, WebKit (iOS/iPadOS Safari), and Gecko runtimes.
 
-**100% Python Standard Library & Zero-Dependency In-Browser Client JS** — zero third-party runtime dependencies. Runs everywhere Python 3.9+ runs (Linux, macOS, Windows, Termux/Android) or directly in client silicon.
+Core capabilities:
+- **W3C Web App Manifest Synthesis**: Generates `manifest.webmanifest` payloads supporting `display_override` (`window-controls-overlay`, `tabbed`), `id`, `scope`, `orientation`, `categories`, `screenshots`, and `related_applications`.
+- **ServiceWorker Strategy Compiler**: Produces ready-to-deploy `sw.js` workers across `cache-first`, `network-first`, `stale-while-revalidate`, `cache-only`, and `network-only` strategies with offline fallback routing and Background Sync hooks.
+- **Maskable & Adaptive Icon Forge**: Synthesizes multi-resolution SVG and maskable safe-zone (`80%` inner circle) icon suites (`48x48` through `512x512`) plus Apple touch and favicon `<head>` link tags.
+- **Desktop & OS Integration Validators**: Validates and simulates `shortcuts`, custom `protocol_handlers` (`web+*`), `share_target` (`GET` and `multipart/form-data` `POST`), and `file_handlers` (`launchQueue` MIME mappings).
+- **Installability Linter (`0–100`)**: Audits existing manifests against W3C specs and Lighthouse installability criteria.
 
----
+## Architecture
 
-## 🌟 Key Capabilities
-
-- 📋 **W3C Web App Manifest Generator**: Full schema compliance with Chromium & iOS installability requirements (`display`, `orientation`, `theme_color`, `background_color`, `shortcuts`, `share_target`, `file_handlers`, and `screenshots`).
-- ⚡ **ServiceWorker Architect**: Synthesizes production-ready JavaScript Service Workers supporting `StaleWhileRevalidate`, `CacheFirst`, `NetworkFirst`, `NetworkOnly`, and `CacheOnly` caching strategies, atomic cache versioning, navigation preload, offline fallback routing, background sync, and push notifications.
-- 🎨 **Pure-Python Icon Forge**: Generates vector SVG icons with 80% safe-zone adaptive maskable padding, standard resolution suites (`16x16` to `1024x1024`), Apple touch icons (`180x180`), and multi-resolution Windows `favicon.ico` binaries with zero imaging dependencies.
-- 🔍 **Lighthouse Installability Linter**: Comprehensive audit scoring engine (0–100) assessing installability rules, maskable icons, scope containment, color safety, and actionable fix recommendations.
-- 📱 **Material 3 Studio UI**: Interactive light/dark web studio (design influenced by Material 3 tokens) featuring a Pixel mobile phone frame preview (Install banner bottom sheet, launch splash screen, and Android home screen grid), live tabbed code inspector, and 1-click complete PWA `.zip` bundle export.
-- 🤖 **Model Context Protocol (MCP) Server**: Native JSON-RPC 2.0 stdio server seamlessly exposing tools to Claude Desktop, Cursor, Cline, Roo Code, and AI agents.
-- 📦 **14+ Built-in Application Templates**: Instant blueprints for E-Commerce, SaaS Dashboards, News Readers, Offline Notebooks, Media Players, Developer Tools, Fullscreen Canvas Games, and AI Assistants.
-
----
-
-## 🏛️ Architecture & Data Flow
-
-```mermaid
-flowchart TD
-    subgraph Inputs["1. Input Interfaces"]
-        CLI["CLI Commands<br/>(pwa-manifest-builder)"]
-        UI["Material 3 Studio UI<br/>(http://localhost:8080)"]
-        MCP["MCP Protocol Server<br/>(stdio JSON-RPC 2.0)"]
-        PY["Python Library API<br/>(import pwa_manifest_builder)"]
-    end
-
-    subgraph Core["2. Core Domain & Processing Engines"]
-        Models["Domain Models<br/>(PWAManifestConfig, ServiceWorkerConfig)"]
-        Catalog["Catalog Presets<br/>(14+ Templates)"]
-        GenManifest["Manifest Generator<br/>(W3C JSON & Meta Tags)"]
-        GenSW["SW Synthesizer<br/>(Lifecycle & Strategies)"]
-        Forge["Icon Forge<br/>(SVG & Favicon.ico)"]
-        Linter["Linter & Auditor<br/>(Installability & Quality Score)"]
-    end
-
-    subgraph Outputs["3. Generated Artifacts"]
-        OutManifest["manifest.webmanifest"]
-        OutSW["sw.js"]
-        OutMeta["index.html &lt;head&gt; tags"]
-        OutOffline["offline.html"]
-        OutIcons["icons/*.svg & favicon.ico"]
-        OutZip["Complete PWA Bundle (.zip)"]
-    end
-
-    Inputs --> Models
-    Models --> GenManifest
-    Models --> GenSW
-    Models --> Forge
-    Models --> Linter
-    Catalog --> Models
-
-    GenManifest --> OutManifest
-    GenManifest --> OutMeta
-    GenSW --> OutSW
-    GenSW --> OutOffline
-    Forge --> OutIcons
-    GenManifest & GenSW & Forge --> OutZip
+```text
+pwa-manifest-builder/
+├── server.py                                 # Standalone loopback workstation entrypoint (127.0.0.1:8100)
+├── bin/
+│   ├── pwa-builder.js                        # Unified CLI, Web UI, and Electron desktop launcher
+│   └── pwa-manifest-builder-tui              # Terminal dashboard launcher
+├── public/                                   # Zero-egress browser PWA Manifest Studio UI
+├── src/pwa_manifest_builder/
+│   ├── manifest_generator.py                 # W3C manifest.webmanifest & HTML <head> tag compiler
+│   ├── serviceworker_generator.py            # Offline caching strategy & sw.js script generator
+│   ├── icon_forge.py                         # Procedural SVG & maskable safe-zone icon generator
+│   ├── shortcuts_simulator.py                # App shortcuts & custom protocol_handlers validator
+│   ├── share_and_file_handlers.py            # Web Share Target & File Handling launchQueue validator
+│   ├── linter.py                             # 0-100 installability & Lighthouse readiness auditor
+│   ├── catalog.py                            # Domain preset templates (SaaS, E-Commerce, Media, Docs)
+│   ├── mcp_server.py                         # JSON-RPC 2.0 stdio MCP server (13 tools + 3 prompts)
+│   ├── ui_server.py                          # Threading HTTP REST API & Studio server (:8100)
+│   └── cli.py                                # pwa-manifest-builder / pwa-builder CLI router
+└── tests/                                    # 101-test pytest verification suite
 ```
 
----
-
-## 🚀 Quick Start
-
-### Installation
-
-Install via pip or clone directly (zero runtime dependencies):
+## Quickstart
 
 ```bash
-# Clone and install locally in editable mode
-git clone https://github.com/example/pwa-manifest-builder.git
+git clone https://github.com/1nc0gn30/pwa-manifest-builder.git
 cd pwa-manifest-builder
 pip install -e .
+
+# Launch the local PWA Manifest Studio UI and REST API on 127.0.0.1:8100
+python3 server.py --port 8100
 ```
 
-### Launch Material 3 Studio UI
+Open `http://127.0.0.1:8100` in your browser, or serve the static browser bundle directly:
 
 ```bash
-pwa-manifest-builder serve --port 8080 --open
+python3 -m http.server 8100 --directory public
 ```
 
-Open `http://localhost:8080` in your browser to design and preview your Progressive Web App.
+## CLI & MCP Usage
 
----
-
-## 📱 Material 3 Studio UI (Design Influenced by Material 3)
-
-The web studio (`/public/index.html` or served via `pwa-manifest-builder serve`) provides an interactive 3-column cockpit:
-
-1. **Left Configurator Panel**:
-   - Template Preset Picker (E-Commerce, SaaS, Game, Offline Notes, etc.)
-   - Tabbed configuration: Basic Info, Display & Window, Scope & URLs, ServiceWorker & Caching, and Icon Forge.
-2. **Center Dual-Mode Viewport**:
-   - **📱 Live Device Preview**: Realistic Pixel mobile frame displaying:
-     - Install bottom sheet dialog
-     - App launch splash screen
-     - Android homescreen icon badge
-   - **💻 Code Inspector**: Real-time syntax-highlighted tabs for `manifest.webmanifest`, `sw.js`, `index.html <head>`, and `offline.html`.
-3. **Right Audit Panel**:
-   - Real-time animated Lighthouse Installability Gauge (0–100 score).
-   - Checklist status pills (Manifest, Start URL, Display, 192/512 Icons, Maskable Icon, Theme Colors, ServiceWorker, Offline Route).
-   - **1-Click Download Bundle (.ZIP)** button downloading a ready-to-deploy archive.
-
----
-
-## 🛠️ CLI Reference
-
-The CLI is available as `pwa-manifest-builder`, `pwa-builder`, or `pwabuild`:
-
-### 1. Generate W3C Manifest
+Installing via `pip install -e .` registers `pwa-manifest-builder`, `pwa-builder`, and `pwabuild` (and ZothOS v3.4.0 exposes `pwa-builder` / `pwa-manifest-builder` on `$PATH`).
 
 ```bash
-# Generate manifest and write to stdout
-pwa-manifest-builder generate --name "My Progressive Web App" --short-name "MyApp" --theme-color "#1a73e8" --stdout
+# Check status and JSON telemetry
+pwa-manifest-builder --help
+pwa-manifest-builder --status
+pwa-manifest-builder --json
 
-# Generate from built-in template to file
-pwa-manifest-builder generate --template saas-dashboard --output ./public/manifest.webmanifest
+# Generate manifest.webmanifest, sw.js, icon suite, and HTML meta tags
+pwa-manifest-builder generate --name "NullAI Studio" --short-name "NullAI" --theme-color "#0f172a"
+pwa-manifest-builder sw --strategy stale-while-revalidate --cache-name "nullai-v1"
+pwa-manifest-builder icons --text "NA" --bg-color "#0f172a" --fg-color "#38bdf8" --output-dir ./icons
+pwa-manifest-builder meta --name "NullAI Studio" --theme-color "#0f172a"
+
+# Audit an existing manifest and inspect built-in templates
+pwa-manifest-builder audit ./public/manifest.json --json
+pwa-manifest-builder templates --json
+
+# Validate shortcuts, protocol handlers, Web Share Target, and File Handlers
+pwa-manifest-builder shortcuts ./public/manifest.json --json
+pwa-manifest-builder protocols ./public/manifest.json --json
+pwa-manifest-builder share-target ./public/manifest.json --json
+pwa-manifest-builder file-handlers ./public/manifest.json --json
+
+# Launch the HTTP server on 127.0.0.1:8100
+pwa-manifest-builder serve --host 127.0.0.1 --port 8100
 ```
 
-### 2. Synthesize Service Worker
+### MCP Server Integration
 
-```bash
-# Generate StaleWhileRevalidate service worker
-pwa-manifest-builder sw --strategy stale_while_revalidate --cache-name my-cache-v1 -o ./public/sw.js
-
-# Generate CacheFirst service worker with background sync
-pwa-manifest-builder sw --strategy cache-first --sync --push -o ./public/sw.js
-```
-
-### 3. Build Full Icon Suite
-
-```bash
-# Forge SVG icon suite with maskable safe zones and favicon.ico
-pwa-manifest-builder icons --name "Pulse" --bg-color "#1a73e8" -o ./public/icons
-```
-
-### 4. Audit PWA Manifest
-
-```bash
-# Audit an existing manifest file
-pwa-manifest-builder audit ./public/manifest.webmanifest
-
-# Output JSON audit report
-pwa-manifest-builder audit ./public/manifest.webmanifest --json
-```
-
-### 5. Generate HTML `<head>` Meta Tags
-
-```bash
-pwa-manifest-builder meta --name "Acme App" --theme-color "#059669"
-```
-
-### 6. Explore Application Templates
-
-```bash
-pwa-manifest-builder templates
-pwa-manifest-builder templates --category productivity
-```
-
-### 7. Web Share Target API Validation & Simulation
-
-```bash
-# Validate Web Share Target configuration
-pwa-manifest-builder share-target --action /share --method POST --enctype multipart/form-data --title-param title --files-param shared_file
-
-# Simulate an incoming share event with title and attachments
-pwa-manifest-builder share-target --action /share --method POST --simulate --share-title "Check this out" --share-file "doc.pdf"
-
-# Generate client-side or ServiceWorker receiver script
-pwa-manifest-builder share-target --action /share --method GET --script
-```
-
-### 8. File Handling API Validation & Launch Simulation
-
-```bash
-# Validate OS file association handlers
-pwa-manifest-builder file-handlers --action /open --name "Markdown Editor" --accept "text/markdown:.md,.markdown"
-
-# Simulate opening a file from the OS file manager
-pwa-manifest-builder file-handlers --action /open --accept "text/markdown:.md" --simulate "notes.md"
-
-# Generate browser launchQueue.setConsumer() script
-pwa-manifest-builder file-handlers --action /open --accept "text/plain:.txt" --script
-```
-
-### 9. Run MCP Server
-
-```bash
-pwa-manifest-builder mcp
-```
-
-### 10. System Diagnostics
-
-```bash
-pwa-manifest-builder diagnostics
-```
-
----
-
-## 🤖 Model Context Protocol (MCP) Setup
-
-`pwa-manifest-builder` contains a built-in MCP server communicating over JSON-RPC 2.0 stdio.
-
-### Claude Desktop Configuration
-
-Add the following to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "pwa-manifest-builder": {
-      "command": "python",
-      "args": ["-m", "pwa_manifest_builder.mcp_server"]
-    }
-  }
-}
-```
-
-### Cursor Configuration
-
-Add to `.cursor/mcp.json`:
+Start the JSON-RPC 2.0 `stdio` MCP server:
 
 ```json
 {
@@ -251,136 +104,55 @@ Add to `.cursor/mcp.json`:
 }
 ```
 
-### Exposed MCP Tools
+Registered MCP tools (13):
+- `pwa_generate_manifest` — Generate W3C `manifest.webmanifest` JSON.
+- `pwa_generate_serviceworker` — Generate offline `sw.js` with configurable caching strategy.
+- `pwa_generate_icons` — Generate multi-size SVG and maskable icon assets.
+- `pwa_audit_manifest` — Audit manifest compliance and score Lighthouse installability.
+- `pwa_html_meta_tags` — Generate Apple touch, theme-color, and manifest `<link>` tags.
+- `pwa_list_templates` — List pre-configured PWA vertical templates.
+- `pwa_simulate_shortcuts` — Validate and simulate home-screen/taskbar app shortcuts.
+- `pwa_validate_protocol_handlers` — Validate `web+*` and standard custom URI schemes.
+- `pwa_validate_share_target` — Validate Web Share Target Level 2 configurations.
+- `pwa_validate_file_handlers` — Validate File Handling API MIME mappings and `launchQueue` handlers.
+- `pwa_simulate_share` — Simulate incoming OS share payloads against `share_target`.
+- `pwa_simulate_file_open` — Simulate OS file-open launches against `file_handlers`.
+- `pwa_diagnostics` — Return runtime environment and engine diagnostics.
 
-| Tool Name | Description |
-| :--- | :--- |
-| `pwa_generate_manifest` | Generates a validated W3C Web App Manifest JSON |
-| `pwa_generate_serviceworker` | Synthesizes a production Service Worker script with caching strategies |
-| `pwa_generate_icons` | Generates SVG icons, maskable safe-zone icons, and favicon |
-| `pwa_audit_manifest` | Validates a manifest against Lighthouse & W3C installability criteria |
-| `pwa_list_templates` | Lists all 14+ built-in application templates |
-| `pwa_html_meta_tags` | Generates iOS, Android, and Windows HTML `<head>` tags |
-| `pwa_simulate_shortcuts` | Simulates and audits App Shortcuts action deep-link routing |
-| `pwa_validate_protocol_handlers` | Validates W3C URL Protocol Handlers and generates registration code |
-| `pwa_validate_share_target` | Validates Web Share Target API specs and emits client/SW receiver code |
-| `pwa_validate_file_handlers` | Validates File Handling API mappings and generates launchQueue consumer |
-| `pwa_simulate_share` | Simulates incoming native share actions (title, text, url, files) |
-| `pwa_simulate_file_open` | Simulates OS file open events matched to file_handlers |
-| `pwa_diagnostics` | Returns server, platform, and capability diagnostic info |
+## REST API Endpoints
 
----
+Bound by default to `http://127.0.0.1:8100`:
 
-## 📐 W3C Manifest & Installability Guide
-
-To qualify for browser installation (Chromium/Android Web App Install Banner and desktop PWA installation):
-
-1. **Manifest File**: Must be served with `Content-Type: application/manifest+json` or `application/json`.
-2. **Display Mode**: Must be `standalone`, `fullscreen`, or `minimal-ui`.
-3. **Start URL**: Must resolve to a valid path inside the application's declared `scope`.
-4. **Icons**:
-   - Minimum `192x192` PNG/SVG icon.
-   - Minimum `512x512` PNG/SVG icon for the splash screen.
-   - Maskable icon with `purpose: "maskable"` conforming to the **80% safe zone** circle (so icons are not clipped when masked into circles or squircles).
-5. **Theme & Background Color**: `theme_color` tints the browser UI; `background_color` prevents white flash on startup.
-
----
-
-## ⚡ Service Worker Caching Strategies
-
-| Strategy | Behavior | Best Used For |
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| **StaleWhileRevalidate** | Serves cached asset immediately while fetching update in background | CSS, JS bundles, fonts, app shell |
-| **CacheFirst** | Returns cached version if present; fetches from network only on cache miss | Images, audio/video, immutable assets |
-| **NetworkFirst** | Tries network first; falls back to cache or offline page when offline | Dynamic APIs, user feeds, checkout pages |
-| **NetworkOnly** | Always fetches directly from network with no cache | Non-idempotent POST/PUT requests, auth |
-| **CacheOnly** | Only serves from cache, never hitting network | Local-first documents, offline archives |
+| `GET` | `/health`, `/api/health`, `/api/diagnostics`, `/api/stats` | Service health and runtime telemetry |
+| `POST` | `/api/generate-manifest` | Compile W3C `manifest.webmanifest` JSON |
+| `POST` | `/api/generate-sw` | Compile offline `sw.js` ServiceWorker |
+| `POST` | `/api/generate-icons` | Generate adaptive and maskable SVG icon suites |
+| `POST` | `/api/audit` | Lint manifest JSON and compute installability score |
+| `GET` | `/api/templates`, `/api/templates/<id>` | Retrieve built-in application presets |
+| `POST` | `/api/shortcuts`, `/api/protocols` | Validate shortcuts and custom protocol handlers |
+| `POST` | `/api/share-target/validate`, `/api/share-target/simulate` | Validate and simulate Web Share Target payloads |
+| `POST` | `/api/file-handlers/validate`, `/api/file-handlers/simulate` | Validate and simulate File Handling API launches |
+| `POST` | `/api/bundle`, `/api/export-zip` | Export full production PWA bundle or ZIP archive |
 
----
-
-## 🐍 Python Library API
-
-```python
-from pwa_manifest_builder import (
-    PWAManifestConfig,
-    ServiceWorkerConfig,
-    DisplayMode,
-    CachingStrategy,
-    generate_manifest_json,
-    generate_service_worker,
-    generate_html_meta_tags,
-    validate_manifest,
-)
-
-# 1. Define Manifest Configuration
-manifest_cfg = PWAManifestConfig(
-    name="Pulse Fitness Tracker",
-    short_name="PulseFit",
-    description="Track workouts and nutrition offline.",
-    start_url="/?source=pwa",
-    display=DisplayMode.STANDALONE,
-    theme_color="#dc2626",
-    background_color="#18181b"
-)
-manifest_cfg.add_icon("/icons/icon-192.png", sizes="192x192", purpose="any")
-manifest_cfg.add_icon("/icons/icon-512.png", sizes="512x512", purpose="maskable")
-
-# 2. Generate JSON & Meta Tags
-manifest_json = generate_manifest_json(manifest_cfg)
-meta_tags = generate_html_meta_tags(manifest_cfg)
-
-# 3. Synthesize Service Worker
-sw_cfg = ServiceWorkerConfig(
-    cache_name="pulse-cache",
-    cache_version="v1",
-    caching_strategy=CachingStrategy.STALE_WHILE_REVALIDATE,
-    offline_fallback_url="/offline.html"
-)
-sw_script = generate_service_worker(sw_cfg)
-
-# 4. Run Audit
-report = validate_manifest(manifest_cfg)
-print(f"Lighthouse Installability Score: {report.installable_score}/100")
-```
-
----
-
-## 🧪 Test Suite
-
-Run the full pytest test suite:
+## Testing & Verification
 
 ```bash
-pytest
+# Run the 101-test pytest suite
+PYTHONPATH=src python3 -m pytest -q
+
+# Run built-in CLI self-verification
+PYTHONPATH=src python3 -m pwa_manifest_builder.cli test
+
+# Secret hygiene verification
+gitleaks detect --source . --no-banner --redact
 ```
 
----
+## Support
 
-## 📄 License
+PWA Manifest Builder is 100% free and open-source software with zero paywalls or feature gates. Optional support: [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X).
 
-MIT License. Designed and engineered for high-performance Progressive Web Applications.
+## License
 
----
-
-## 🏛️ ZothOS v3.4, Zoth Studio v2 & Obsidian Second Brain Ecosystem
-
-### Cross-Surface Integration Matrix
-
-| Surface | Endpoint / Binary | Capabilities |
-| :--- | :--- | :--- |
-| **Standalone Workstation** | `http://127.0.0.1:3000` | 100% Free & Open-Access Web Deck, live `/health` & REST telemetry |
-| **Zoth Studio v2 Route** | `http://127.0.0.1:3000/tools/pwa-manifest-builder` | Interactive God-Mode component inside Zoth Studio (`https://zoth.nullai.tech`) |
-| **ZothOS v3.4 CLI & TUI** | `pwa-manifest-builder` / `pwa-manifest-builder-tui` | Global binary in `/usr/local/bin/` with Unicode `U+2800` Braille TUI & `--json` output |
-| **ZothOS-Lite Web Desktop** | `http://127.0.0.1:8145` | Browser-native KDE-style window manager & terminal launcher |
-| **Zoth Obsidian Tracker** | `http://127.0.0.1:8151` | Interactive Obsidian Second Brain vault explorer (`~/Documents/Obsidian Vault/Studio/Tools/Studio pwa-manifest-builder.md`) |
-| **Neuro-Memory STDP Cortex** | `http://127.0.0.1:8094` | 3-Factor STDP synaptic memory daemon & 21-tool MCP server |
-
-```bash
-# Inspect CLI & Unicode U+2800 Braille TUI on ZothOS v3.4
-pwa-manifest-builder --help
-pwa-manifest-builder-tui --status
-pwa-manifest-builder-tui --json
-
-# Verify Second Brain Vault & 12-Step Verification Gallery on :8151
-zoth-obsidian-tracker --verify
-```
-
+MIT License — Copyright (c) 1nc0gn30 ([https://1nc0gn30.si](https://1nc0gn30.si)) & NullAI ([https://nullai.tech](https://nullai.tech)).

@@ -13,7 +13,8 @@
     "pwa-manifest-builder": "./bin/pwa-builder.js"
   },
   "scripts": {
-    "start": "python3 -m http.server 8100 --directory public",
+    "start": "python3 server.py --port 8100",
+    "serve": "python3 server.py --port 8100",
     "serve:public": "python3 -m http.server 8100 --directory public",
     "electron": "electron .",
     "app": "electron .",

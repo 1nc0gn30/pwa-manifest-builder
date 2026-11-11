@@ -10,14 +10,22 @@ const fs = require('fs');
 const rootDir = path.resolve(__dirname, '..');
 const srcDir = path.join(rootDir, 'src');
 const args = process.argv.slice(2);
+const defaultPort = String(process.env.PORT || '8100');
 
-// Check if user requested web mode, desktop app, or CLI
 const isWeb = args[0] === 'web' || args.includes('--web');
-const isAppRequest = !isWeb && (args.length === 0 || args.includes('--gui') || args.includes('--app') || args.includes('--desktop') || args[0] === 'app' || args[0] === 'desktop' || args[0] === 'gui');
+const isAppRequest =
+  !isWeb &&
+  (args.length === 0 ||
+    args.includes('--gui') ||
+    args.includes('--app') ||
+    args.includes('--desktop') ||
+    args[0] === 'app' ||
+    args[0] === 'desktop' ||
+    args[0] === 'gui');
 
 if (isWeb) {
-  console.log('⚡ Launching PWA Manifest Studio Web UI on http://127.0.0.1:8088 ...');
-  const pyChild = spawn('python3', ['-m', 'pwa_manifest_builder.cli', 'serve', '--port', '8088'], {
+  console.log(`Launching PWA Manifest Studio Web UI on http://127.0.0.1:${defaultPort} ...`);
+  const pyChild = spawn('python3', ['-m', 'pwa_manifest_builder.cli', 'serve', '--port', defaultPort], {
     cwd: rootDir,
     stdio: 'inherit',
     env: {
@@ -30,21 +38,12 @@ if (isWeb) {
     console.error('[PWAManifest] Failed to start web server:', pyErr);
   });
 } else if (isAppRequest) {
-  console.log('⚡ Launching PWA Manifest Studio Desktop Workstation...');
-  
-  // Find Electron in local node_modules, sibling micro-repos, or system PATH
+  console.log('Launching PWA Manifest Studio Desktop Workstation...');
+
   const candidateElectronPaths = [
+    process.env.ELECTRON_PATH,
     path.join(rootDir, 'node_modules', '.bin', 'electron'),
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/zoth-micro-repos/NullAI-HexStrike-AI-Terminal/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/zoth-micro-repos/promptmaster-studio/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/zoth-micro-repos/jwt-inspector-guard/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/zoth-micro-repos/envguard-secrets-vault/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/zoth-micro-repos/cron-rhythm-studio/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/regex-droid-builder/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/schema-illustrator-studio/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/zoth-micro-repos/payload-entropy-studio/node_modules/.bin/electron',
-    '/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/zoth-micro-repos/audiocipher-stego-engine/node_modules/.bin/electron',
-  ];
+  ].filter(Boolean);
 
   let electronCmd = 'electron';
   for (const p of candidateElectronPaths) {
@@ -66,8 +65,8 @@ if (isWeb) {
   });
 
   child.on('error', (err) => {
-    console.warn(`[PWAManifest] Electron notice: ${err.message}. Starting web UI on port 8088...`);
-    const pyChild = spawn('python3', ['-m', 'pwa_manifest_builder.cli', 'serve', '--port', '8088'], {
+    console.warn(`[PWAManifest] Electron notice: ${err.message}. Starting web UI on port ${defaultPort}...`);
+    const pyChild = spawn('python3', ['-m', 'pwa_manifest_builder.cli', 'serve', '--port', defaultPort], {
       cwd: rootDir,
       stdio: 'inherit',
       env: {
@@ -80,7 +79,6 @@ if (isWeb) {
     });
   });
 } else {
-  // Delegate to Python CLI / MCP engine
   const child = spawn('python3', ['-m', 'pwa_manifest_builder.cli', ...args], {
     cwd: rootDir,
     stdio: 'inherit',
@@ -91,6 +89,6 @@ if (isWeb) {
   });
 
   child.on('exit', (code) => {
-    process.exit(code || 0);
+    process.exit(code ?? 0);
   });
 }

@@ -968,9 +968,9 @@ class _StudioRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 def cmd_serve(args: argparse.Namespace, color_ok: bool) -> int:
-    """Handle 'serve' subcommand: launch Google Material 3 PWA Studio Web UI."""
+    """Handle 'serve' subcommand: launch PWA Studio Web UI."""
     from .ui_server import start_ui_server
-    port = int(args.port or 8080)
+    port = int(args.port or 8100)
     host = args.host or "127.0.0.1"
 
     url = f"http://{host}:{port}"
@@ -1529,6 +1529,8 @@ def build_parser() -> argparse.ArgumentParser:
         parents=[parent_parser],
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    parser.add_argument("--status", action="store_true", help="Check local service status and configuration")
+    parser.add_argument("--json", action="store_true", help="Output status telemetry as JSON")
 
     subparsers = parser.add_subparsers(dest="subcommand", title="Commands", help="Available subcommands")
 
@@ -1651,8 +1653,8 @@ def build_parser() -> argparse.ArgumentParser:
     p_fh.add_argument("--json", action="store_true", help="Output validation or simulation report as JSON")
 
     # 11. serve
-    p_serve = subparsers.add_parser("serve", parents=[parent_parser], help="Launch Google Material 3 PWA Studio Web UI")
-    p_serve.add_argument("-p", "--port", type=int, default=8080, help="Port to bind (default: 8080)")
+    p_serve = subparsers.add_parser("serve", parents=[parent_parser], help="Launch PWA Studio Web UI")
+    p_serve.add_argument("-p", "--port", type=int, default=8100, help="Port to bind (default: 8100)")
     p_serve.add_argument("-H", "--host", default="127.0.0.1", help="Host interface (default: 127.0.0.1)")
     p_serve.add_argument("--open", action="store_true", help="Automatically open browser on launch")
 
@@ -1698,6 +1700,20 @@ def main(argv: Optional[List[str]] = None) -> int:
     color_ok = _supports_color(no_color_flag)
 
     subcmd = getattr(args, "subcommand", None)
+    if not subcmd and (getattr(args, "status", False) or getattr(args, "json", False)):
+        info = {
+            "service": "pwa-manifest-builder",
+            "version": __version__,
+            "port": 8100,
+            "local_url": "http://127.0.0.1:8100",
+            "studio_url": "https://zoth.nullai.tech/tools/pwa-manifest-builder",
+            "status": "ready",
+        }
+        if getattr(args, "json", False):
+            print(json.dumps(info, indent=2))
+        else:
+            print(f"pwa-manifest-builder {__version__} | http://127.0.0.1:8100 | ready")
+        return 0
 
     # Dispatch to appropriate subcommand handler
     if subcmd == "generate":

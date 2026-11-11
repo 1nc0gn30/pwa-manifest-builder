@@ -588,7 +588,7 @@ class PWARequestHandler(BaseHTTPRequestHandler):
 class PWAServer:
     """Manageable Threading HTTP Studio Server for programmatic start/stop."""
 
-    def __init__(self, host: str = "127.0.0.1", port: int = 8080):
+    def __init__(self, host: str = "127.0.0.1", port: int = 8100):
         self.host = host
         self.port = port
         self.server: Optional[ThreadingHTTPServer] = None
@@ -631,7 +631,7 @@ class PWAServer:
             self.thread = None
 
 
-def start_ui_server(host: str = "127.0.0.1", port: int = 8080, open_browser: bool = False) -> None:
+def start_ui_server(host: str = "127.0.0.1", port: int = 8100, open_browser: bool = False) -> None:
     """Runs the studio UI server blocking in the main thread (for CLI)."""
     server_manager = PWAServer(host=host, port=port)
     url = server_manager.start(open_browser=open_browser)

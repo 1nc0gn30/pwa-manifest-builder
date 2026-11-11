@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "High-performance PWA manifest & ServiceWorker generator, Web Share Target & File Handling API validator, icon forge, installability linter, MCP server & Material 3 studio UI."
 readme = "README.md"
 authors = [
-    { name = "PWA Studio Team", email = "pwa-studio@example.com" }
+    { name = "1nc0gn30 • NullAI", email = "1nc0gn30@users.noreply.github.com" }
 ]
 license = { text = "MIT" }
 requires-python = ">=3.9"
@@ -59,6 +59,12 @@ dev = [
 pwa-manifest-builder = "pwa_manifest_builder.cli:main"
 pwa-builder = "pwa_manifest_builder.cli:main"
 pwabuild = "pwa_manifest_builder.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/1nc0gn30/pwa-manifest-builder"
+Documentation = "https://github.com/1nc0gn30/pwa-manifest-builder#readme"
+Repository = "https://github.com/1nc0gn30/pwa-manifest-builder.git"
+Issues = "https://github.com/1nc0gn30/pwa-manifest-builder/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
