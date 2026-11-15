@@ -151,8 +151,10 @@ gitleaks detect --source . --no-banner --redact
 
 ## Support
 
-PWA Manifest Builder is 100% free and open-source software with zero paywalls or feature gates. Optional support: [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X).
+PWA Manifest Builder is **100% free and open-access software** with zero paywalls or feature gates. Optional support:
+- [☕ Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X)
+- **Solana Tip Address**: `GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK` (`solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`)
 
-## License
+## License & Attribution
 
-MIT License — Copyright (c) 1nc0gn30 ([https://1nc0gn30.si](https://1nc0gn30.si)) & NullAI ([https://nullai.tech](https://nullai.tech)).
+MIT License — Engineered by **Neal Frazier Tech (`@1nc0gn30`) • [NullAI Platform](https://nullai.tech)** ([nealfrazier.tech](https://nealfrazier.tech)).
